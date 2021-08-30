@@ -6,4 +6,3 @@ Search interaction data between drugs
 Tech used:
 - React
 - React Hooks: useState, useEffect
-- Deployed to Netlify
