@@ -13,7 +13,7 @@ function App() {
 			.then((data) => {
 				setData(data);
         console.log("query in UE", query);
-        setFilteredData( data.filter(word => word.drugs.includes(query)) );
+        setFilteredData( data.filter(word => word.drugs.join(' ').includes(query)) );
 			})
       .catch(error => {
         console.log('Error: ' + error);

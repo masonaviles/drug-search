@@ -26,3 +26,7 @@ ul li {
   border-radius: 25px;
   padding: 2rem;
 }
+
+textarea, button {
+  display: block;
+}

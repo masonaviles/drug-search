@@ -14,10 +14,11 @@ function SearchForm(props) {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <input type="search"
+      <textarea type="search"
         onChange={onSearchChange}
         name="search"
         placeholder="Search..."
+        rows="5"
       />
       <button type="submit" id="submit" className="search-button">search</button>
     </form>
