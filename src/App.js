@@ -32,7 +32,7 @@ function App() {
         <ul>
         {filteredData.map((interactions) => {
           if (interactions.severity === 'major') {
-            return <li key={Math.floor(Math.random()*1000000)}>
+            return <li key={Math.floor(Math.random()*100000000)}>
             <h2>
               <span>{interactions.drugs[0]}</span>
               <span>x</span>
