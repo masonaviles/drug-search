@@ -28,7 +28,7 @@ function App() {
     <div className="App">
         <h1>Drug Search</h1>
         <div>
-          <SearchForm onSearch={performSearch}/>
+          <SearchForm performSearch={performSearch}/>
         </div>
         <ul>
         {testSearch.map((interactions) => (

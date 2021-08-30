@@ -8,7 +8,7 @@ function SearchForm(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSearch(searchText);
+    props.performSearch(searchText);
     e.currentTarget.reset();
   }
 
