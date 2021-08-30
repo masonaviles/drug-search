@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import SearchForm from './SearchForm';
+
 
 function App() {
   const [data, setData] = useState([])
@@ -13,18 +15,26 @@ function App() {
 
   console.log('data from state: ', data);
 
+  const testSearch = data.filter(word => word.drugs.includes('finasteride'));
+
+  //console.log('sample search', testSearch[0].drugs[0]);
+
   return (
     <div className="App">
         <h1>Drug Search</h1>
         <div>
-        {data.map((interactions) => (
+          <SearchForm/>
+        </div>
+        <ul>
+        {testSearch.map((interactions) => (
           <li>
-            <h2>{interactions.drugs}</h2>
+            <h2>{interactions.drugs[0]}</h2>
+            <h3>{interactions.drugs[1]}</h3>
             <p>{interactions.severity}</p>
             <p>{interactions.description}</p>
           </li>
         ))}
-        </div>
+        </ul>
     </div>
   );
 }
