@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 function SearchForm(props) {
+  
   const [searchText, setSearchText] = useState('');
 
   const onSearchChange = (e) => setSearchText(e.target.value);
@@ -11,6 +12,8 @@ function SearchForm(props) {
     e.currentTarget.reset();
   }
 
+  console.log("search text: ", searchText);
+
   return (
     <form className="search-form" onSubmit={handleSubmit}>
       {/* <label className="is-hidden" htmlFor="search">Search</label> */}
@@ -19,7 +22,7 @@ function SearchForm(props) {
         name="search"
         placeholder="Search..."
       />
-      <button type="submit" id="submit" className="search-button"><i className="material-icons icn-search">search</i></button>
+      <button type="submit" id="submit" className="search-button">search</button>
     </form>
   );
 }
