@@ -28,9 +28,11 @@ function App() {
         <div>
           <SearchForm performSearch={performSearch}/>
         </div>
+        <h4>Major Interactions:</h4>
         <ul>
-        {filteredData.map((interactions) => (
-          <li key={Math.floor(Math.random()*1000000)}>
+        {filteredData.map((interactions) => {
+          if (interactions.severity === 'major') {
+            return <li key={Math.floor(Math.random()*1000000)}>
             <h2>
               <span>{interactions.drugs[0]}</span>
               <span>x</span>
@@ -39,7 +41,42 @@ function App() {
             <h3>{interactions.severity}</h3>
             <p>{interactions.description}</p>
           </li>
-        ))}
+          }
+        })}
+        </ul>
+
+        <h4>Moderate Interactions:</h4>
+        <ul>
+        {filteredData.map((interactions) => {
+          if (interactions.severity === 'moderate') {
+            return <li key={Math.floor(Math.random()*1000000)}>
+            <h2>
+              <span>{interactions.drugs[0]}</span>
+              <span>x</span>
+              <span>{interactions.drugs[1]}</span>
+            </h2>
+            <h3>{interactions.severity}</h3>
+            <p>{interactions.description}</p>
+          </li>
+          }
+        })}
+        </ul>
+
+        <h4>Minor Interactions:</h4>
+        <ul>
+        {filteredData.map((interactions) => {
+          if (interactions.severity === 'minor') {
+            return <li key={Math.floor(Math.random()*1000000)}>
+            <h2>
+              <span>{interactions.drugs[0]}</span>
+              <span>x</span>
+              <span>{interactions.drugs[1]}</span>
+            </h2>
+            <h3>{interactions.severity}</h3>
+            <p>{interactions.description}</p>
+          </li>
+          }
+        })}
         </ul>
     </div>
   );
