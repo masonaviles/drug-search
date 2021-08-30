@@ -1,24 +1,27 @@
 import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [posts, setPosts] = useState([])
+  const [data, setData] = useState([])
 
   useEffect(() => {
-		fetch("https://jsonplaceholder.typicode.com/posts")
+		fetch('/data.json')
 			.then((response) => response.json())
 			.then((data) => {
-				setPosts(data) // new
+				setData(data)
 			})
-	}, [])
+	}, []);
+
+  console.log('data from state: ', data);
 
   return (
     <div className="App">
         <h1>Drug Search</h1>
         <div>
-        {posts.map((item) => (
+        {data.map((interactions) => (
           <li>
-            <h2>{item.title}</h2>
-            <p>{item.description}</p>
+            <h2>{interactions.drugs}</h2>
+            <p>{interactions.severity}</p>
+            <p>{interactions.description}</p>
           </li>
         ))}
         </div>
