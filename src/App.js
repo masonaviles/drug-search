@@ -4,25 +4,23 @@ import SearchForm from './SearchForm';
 
 function App() {
   const [data, setData] = useState([]);
-  const [query, setQuery] = useState('finasteride');
+  const [filteredData, setFilteredData] = useState([]);
+  const [query, setQuery] = useState('');
 
   useEffect(() => {
 		fetch('/data.json')
 			.then((response) => response.json())
 			.then((data) => {
-				setData(data)
+				setData(data);
+        console.log("query in UE", query);
+        setFilteredData( data.filter(word => word.drugs.includes(query)) );
 			})
-	}, []);
-
-  console.log('data from state: ', data);
-  console.log('query from state: ', query);
+      .catch(error => {
+        console.log('Error: ' + error);
+      })
+	}, [query]);
   
-  let testSearch = data.filter(word => word.drugs.includes('finasteride'));
-
   const performSearch = (value) => setQuery(value);
-
-  console.log('testSearch: ', testSearch);
-  console.log('performSearch: ', performSearch);
 
   return (
     <div className="App">
@@ -31,7 +29,7 @@ function App() {
           <SearchForm performSearch={performSearch}/>
         </div>
         <ul>
-        {testSearch.map((interactions) => (
+        {filteredData.map((interactions) => (
           <li key={Math.floor(Math.random()*1000000)}>
             <h2>
               <span>{interactions.drugs[0]}</span>

@@ -12,11 +12,8 @@ function SearchForm(props) {
     e.currentTarget.reset();
   }
 
-  console.log("search text: ", searchText);
-
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      {/* <label className="is-hidden" htmlFor="search">Search</label> */}
       <input type="search"
         onChange={onSearchChange}
         name="search"
